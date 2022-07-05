@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mapperとxmlのマッピング -->
+<mapper namespace="com.example.repository.UserMapper">
+
+  <!-- マッピング定義(ユーザー) -->
+   <resultMap type="com.example.domain.user.model.User" id="user">
+    <id column="userId" property="userId" />
+    <result column="password" property="password" />
+    <result column="userName" property="userName" />
+    <result column="email" property="email" />
+  </resultMap>
+  <resultMap type="com.example.domain.user.model.Folder" id="folder">
+    <id column="folderId" property="folderId" />
+    <result column="folderName" property="folderName" />
+     <result column="userId" property="userId" />
+    <result column="completeRate" property="completeRate" />
+  </resultMap>
+  <resultMap type="com.example.domain.user.model.Word" id="word">
+    <id column="wordId" property="wordId" />
+    <result column="english" property="english" />
+     <result column="japanese" property="japanese" />
+    <result column="part_of_speechName" property="part_of_speechName" />
+     <result column="folderId" property="folderId" />
+      <result column="userId" property="userId" />
+  </resultMap>
+  
+  
+<select id="getLoginUser" resultType="User">
+select 
+*
+from 
+user
+where
+email=#{email} AND
+password=#{password}
+</select>
+
+<insert id="registarUser">
+insert into user(
+userName,
+email,
+password
+)
+values(
+#{userName},
+#{email},
+#{password}
+)
+</insert>
+
+<select id="getFolderInfo" resultType="Folder">
+select
+*
+from 
+folder
+where
+userId=#{userId}
+
+</select>
+<insert id="registarWord">
+insert into word(
+ english,
+ japanese,
+ part_of_speechName,
+ folderId,
+ userId
+ )
+values(
+ #{english},
+ #{japanese},
+ #{part_of_speechName},
+ #{folderId},
+ #{userId}
+ )
+</insert>
+
+  
+ 
+ 
+</mapper>

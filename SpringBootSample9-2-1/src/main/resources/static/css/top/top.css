@@ -1,0 +1,56 @@
+* {
+   box-sizing: border-box;
+}
+body {
+   margin: 0;
+   padding: 0;
+   font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  
+   background-image: url('../images/kaigai.jpg');
+   
+}
+
+
+header {
+   padding: 30px 4% 10px;
+   position: fixed;
+   top: 0;
+   width: 100%;
+   background-color: transparent;
+   display: flex;
+   align-items: center;
+    background-color: blue;
+}
+h1 {
+   margin: 0; padding: 0;
+   font-size: 20px;
+}
+a {	
+   text-decoration: none;
+   color: #fff;
+}
+nav {
+   margin: 0 0 0 auto;
+}
+ul {
+   list-style: none;
+   margin: 0;
+   display: flex;
+}
+li {
+   margin: 0 0 0 15px;
+   font-size: 14px;
+}
+.main-visual {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   background-image: url('https://www.google.com/search?q=%E6%B5%B7%E5%A4%96&rlz=1C5CHFA_enJP925JP926&sxsrf=ALiCzsZeWR2JLXe7YsCcjsRRK-hP7BkQQw:1656971027678&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjZ24eMmuD4AhWd4TgGHXC6A68Q_AUoA3oECAEQBQ&biw=1555&bih=969&dpr=1#imgrc=N2YnM70yqmAGBM');
+}
+h2 {
+   margin: 0;
+   font-size: 30px;
+   font-weight: normal;
+   color: #fff;
+}

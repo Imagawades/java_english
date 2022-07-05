@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- CSS読込 -->
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/css/login/login.css}">
+  <!-- JS読込 -->
+  <script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
+  <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
+  <title>ログイン</title>
+</head>
+<body class="bg-light">
+  <div class="text-center">
+    <form method="post" th:action="@{/user/registar}" class="form-login" th:object="${user}">
+      <h1>EnglishWordへzようこそ</h1>
+      <h1>新規ユーザー登録</h1>
+    
+      <!-- ユーザー名 -->
+       <div class="form-group">
+        <label for="userName" class="sr-only">email</label>
+        <input type="text" class="form-control"  placeholder="ユーザー名" name="userName" required/>
+      </div>
+      
+      <div class="form-group">
+        <label for="email" class="sr-only">email</label>
+        <input type="email" class="form-control"  placeholder="メールアドレス" name="email" required/>
+      </div>
+      <!-- パスワード -->
+      <div class="form-group">
+        <label for="password" class="sr-only">password</label>
+        <input type="text"  class="form-control" placeholder="パスワード" name="password" minlength="5" required />
+      </div>
+      <input type="submit" value="新規登録" class="btn btn-primary" />
+    </form>
+    
+    
+    <script>
+    var email=document.getElementById("email");
+    /*メールアドレスのパターン 正規表現*/
+    var pattern = /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]+.[A-Za-z0-9]+$/;
+    
+    /*フォーム入力のイベントハンドラ*/
+    email.addEventListener("input", (e) => {
+        /*メールアドレスのパターンにマッチするかチェック*/
+        if (pattern.test(email.value)) {
+             /*パターンにマッチした場合*/
+             result.textContent = "メールアドレスです";
+          } else {
+             /*パターンにマッチしない場合*/
+             result.textContent = "メールアドレスではありません";
+         }
+    })
+    </script>
+  </div>
+</body>
+</html>
