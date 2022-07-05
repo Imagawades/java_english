@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.domain.user.model.Folder;
+import com.example.domain.user.model.Part_of_speech;
 import com.example.domain.user.model.User;
 import com.example.domain.user.model.Word;
 import com.example.domain.user.service.UserService;
@@ -26,6 +27,9 @@ public class UserServiceImpl implements UserService {
 	}
 	public void registarWord(Word word) {
 		mapper.registarWord(word);
+	}
+	public List<Part_of_speech> getpart_of_speech(){
+		return mapper.getpart_of_speech();
 	}
 
    

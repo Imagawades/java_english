@@ -19,3 +19,7 @@ CREATE TABLE IF NOT EXISTS word (
 	folderId INT,
 	userId INT
 	);
+CREATE TABLE IF NOT EXISTS part_of_speech (
+  part_of_speechId INT AUTO_INCREMENT PRIMARY KEY,
+  part_of_speechName VARCHAR(50)
+);

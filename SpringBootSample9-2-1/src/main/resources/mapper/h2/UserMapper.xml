@@ -26,6 +26,10 @@
      <result column="folderId" property="folderId" />
       <result column="userId" property="userId" />
   </resultMap>
+   <resultMap type="com.example.domain.user.model.Part_of_speech" id="part_of_speech">
+    <id column="part_of_speechId" property="part_of_speechId" />
+    <result column="part_of_speechName" property="part_of_speechName" />
+  </resultMap>
   
   
 <select id="getLoginUser" resultType="User">
@@ -76,6 +80,13 @@ values(
  #{userId}
  )
 </insert>
+
+<select id="getpart_of_speech" resultType="Part_of_speech">
+select
+*
+from
+part_of_speech
+</select>
 
   
  

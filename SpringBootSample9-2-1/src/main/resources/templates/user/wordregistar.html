@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- CSS読込 -->
   <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
-  <link rel="stylesheet" th:href="@{/css/login/login.css}">
+  <link rel="stylesheet" th:href="@{/css/user/wordregistar.css}">
   <!-- JS読込 -->
   <script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
@@ -33,7 +33,10 @@
       <div class="form-group">
         <label for="part_of_speechNam" class="sr-only">品詞</label>
          <h2>品詞<h2>
-        <input type="text"  class="form-control"name="part_of_speechName" />
+         <select id="singleSelect" name="selectedItem">
+     <option value="">---</option>
+     <option th:each="item : ${part_of_speeches}" th:value="${item.part_of_speechName}" th:text="${item.part_of_speechName}" th:selected="${item.value} == *{selectedItem}">singleSelect</option>
+</select>
       </div>
       <input type="submit" value="単語登録" class="btn btn-primary" />
     </form>

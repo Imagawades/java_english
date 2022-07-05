@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.user.model.Folder;
+import com.example.domain.user.model.Part_of_speech;
 import com.example.domain.user.model.Word;
 import com.example.domain.user.service.UserService;
 
@@ -23,7 +26,12 @@ public class WordRegistarController{
 	public String getFolderDetail(Word word,Folder folder,Model model,@PathVariable("folderId") Integer folderId) {
 		word.setFolderId(folderId);
 		model.addAttribute("word",word);
-		System.out.println(2);
+		
+		//品詞のプルダウン表示
+		List<Part_of_speech> part_of_speechs=userService.getpart_of_speech();
+		System.out.println(part_of_speechs);
+		model.addAttribute("part_of_speechs",part_of_speechs)；c
+		
 		
 		return "user/wordregistar";
 	}

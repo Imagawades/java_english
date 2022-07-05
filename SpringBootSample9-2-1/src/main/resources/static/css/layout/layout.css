@@ -8,6 +8,7 @@
 
 .main {
   position: fixed;
+  margin-top:50px;
   display: block;
   top: 58px;
   bottom: 0;
@@ -23,4 +24,14 @@
   bottom: 0;
   left: 0;
    height: calc(100vh - 200px);
+}
+
+.table .thead-light th {
+    color: #495057;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+    width:200px;
+}
+.A{
+	width:700px;
 }

@@ -3,6 +3,7 @@ package com.example.domain.user.service;
 import java.util.List;
 
 import com.example.domain.user.model.Folder;
+import com.example.domain.user.model.Part_of_speech;
 import com.example.domain.user.model.User;
 import com.example.domain.user.model.Word;
 
@@ -17,5 +18,8 @@ public interface UserService {
 	
 	//単語登録
 	public void registarWord(Word word);
+	
+	//品詞一覧取得
+	public List<Part_of_speech> getpart_of_speech();
 
 }
