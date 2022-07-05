@@ -31,6 +31,7 @@ public class LoginController {
     	//ログインユーザーの情報取得
     	List<User> loginUser=userService.getLoginUser(email,password);
     	if(loginUser.size()!=0) {
+    		System.out.println();
     		return "redirect:/user/home";
     	}
     	else {
