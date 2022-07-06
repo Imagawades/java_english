@@ -30,7 +30,7 @@ public class WordRegistarController{
 		//品詞のプルダウン表示
 		List<Part_of_speech> part_of_speechs=userService.getpart_of_speech();
 		System.out.println(part_of_speechs);
-		model.addAttribute("part_of_speechs",part_of_speechs)；c
+		model.addAttribute("part_of_speechs",part_of_speechs);
 		
 		
 		return "user/wordregistar";
