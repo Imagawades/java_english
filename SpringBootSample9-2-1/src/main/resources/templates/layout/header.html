@@ -8,14 +8,14 @@
   <nav layout:fragment="header" class="navbar navbar-inverse navbar-fixed-top navbar-dark bg-dark">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">英語学習アプリ</a>
+        <a class="navbar-brand" href="#">ラクラクEnglish</a>
       </div>
        <form method="get" th:action="@{/user/selectfolder}">
         <button class="btn btn-link pull-right navbar-brand" type="submit">
           単語登録
         </button>
       </form>
-      <form method="get" th:action="@{/logout}">
+      <form method="get" th:action="@{/user/selectfoldertest}">
         <button class="btn btn-link pull-right navbar-brand" type="submit">
           単語テスト
         </button>

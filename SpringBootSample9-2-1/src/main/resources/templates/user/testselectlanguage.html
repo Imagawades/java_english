@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout/layout}">
+<head>
+  <title>ユーザー一覧</title>
+  <!-- 個別CSS読込 -->
+   <link rel="stylesheet" th:href="@{/css/user/selectfolder.css}">
+</head>
+<body>
+  <div layout:fragment="content">
+    <h1>出題形式を選択してください</h1>
+    <a href="/user/englishteststart" class="btn btn--pink btn--border-ridge">英語→日本語</a>
+     <a href="/user/japaneseteststart" class="btn btn--pink btn--border-ridge">日本語→英語</a>
+  </div>
+</body>
+</html>

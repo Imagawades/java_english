@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.domain.user.model.Session;
 import com.example.domain.user.model.User;
 import com.example.domain.user.service.UserService;
 
@@ -15,6 +16,8 @@ import com.example.domain.user.service.UserService;
 public class LoginController {
     @Autowired
     UserService userService;
+    @Autowired
+    Session session;
     
     /** ログイン画面を表示 */
     @GetMapping("/login")
@@ -31,7 +34,10 @@ public class LoginController {
     	//ログインユーザーの情報取得
     	List<User> loginUser=userService.getLoginUser(email,password);
     	if(loginUser.size()!=0) {
-    		System.out.println();
+    		session.setEmail(email);
+    		session.setPassword(password);
+    		session.setUserName(loginUser.get(0).getUserName());
+    	
     		return "redirect:/user/home";
     	}
     	else {

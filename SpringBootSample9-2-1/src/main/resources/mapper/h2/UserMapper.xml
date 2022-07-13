@@ -30,6 +30,12 @@
     <id column="part_of_speechId" property="part_of_speechId" />
     <result column="part_of_speechName" property="part_of_speechName" />
   </resultMap>
+   <resultMap type="com.example.domain.user.model.Question" id="question">
+    <id column="questionId" property="questionId" />
+    <result column="wordId" property="wordId" />
+    <result column="userId" property="userId" />
+    <result column="flag" property="flag" />
+  </resultMap>
   
   
 <select id="getLoginUser" resultType="User">
@@ -88,7 +94,69 @@ from
 part_of_speech
 </select>
 
-  
- 
+<select id="getUser" resultType="User">
+select
+*
+from 
+User
+where
+email=#{email}
+</select>
+
+<select id="getAllWords" resultType="Word">
+select
+*
+from
+word
+where
+folderId=#{folderId}
+</select>
+
+<insert id="createQuestionTable">
+insert into questions(
+wordId,
+userId,
+flag
+)
+values(
+#{wordId},
+#{userId},
+#{flag}
+)
+
+</insert>
+
+<select id="getAllQuestions" resultType="Question">
+select
+*
+from
+questions
+where
+userId=#{userId}
+</select>
+
+<update id="updateFlag">
+update 
+questions
+set
+
+wordId=#{wordId},
+userId=#{userId},
+flag=#{flag} 
+where
+wordId=#{wordId}
+
+
+
+</update>
+
+<select id="getWord" resultType="Word">
+select
+*
+from
+word
+where
+wordId=#{wordId}
+</select> 
  
 </mapper>

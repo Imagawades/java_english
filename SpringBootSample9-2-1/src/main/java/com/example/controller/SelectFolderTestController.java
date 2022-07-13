@@ -15,13 +15,13 @@ import com.example.domain.user.service.UserService;
 
 @Controller
 @RequestMapping("/user")
-public class SelectFolderController{
+public class SelectFolderTestController{
 	@Autowired
 	UserService userService;
 	@Autowired
 	Session session;
-	@GetMapping("/selectfolder")
-	public String getSelectFolder(Model model) {
+	@GetMapping("/selectfoldertest")
+	public String getSelectFolderTest(Model model) {
 		//フォルダ情報取得
 		String email=session.getEmail();
 		User user=userService.getUser(email);
@@ -29,7 +29,7 @@ public class SelectFolderController{
 		
 		List<Folder> folderList=userService.getFolderInfo(userId);
 		model.addAttribute("folderList",folderList);
-		return "user/selectfolder";
+		return "user/selectfoldertest";
 		
 	}
 	

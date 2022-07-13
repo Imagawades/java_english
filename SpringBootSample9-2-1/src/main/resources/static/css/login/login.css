@@ -6,11 +6,12 @@
  
 }
 .text-center{
-	background-image:url("../../images/kaigai.jpg");
+	
 }
 .form-login>h1{
 	margin-bottom:20px;
 	font-size:80px;
+	width:650px;
 	
 }
 
@@ -33,7 +34,7 @@
 	margin-bottom:30px;
 }
 html{
-	background-image:url("../../images/kaigai.jpg");
+	
 	height:100%;
 }
 

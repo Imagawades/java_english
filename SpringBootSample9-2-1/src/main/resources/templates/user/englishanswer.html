@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout/layout}">
+<head>
+  <title>ユーザー一覧</title>
+  <!-- 個別CSS読込 -->
+   <link rel="stylesheet" th:href="@{/css/user/englishtest.css}">
+</head>
+<body>
+  <div layout:fragment="content">
+  
+  　
+ <form id="user-search-form" method="get" th:action="@{/user/englishtest}"  th:object="${word}">
+
+<tr th:each="item:${word}">
+<td class="A" th:text="${item.english}">
+</td> 
+<td th:text="${item.japanese}">
+</td> 
+</tr>
+
+
+
+
+</form>
+   
+    
+   
+  </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+
+
+
+html{
+	height:1000px;
+}
+.id{
+	margin-top:100px;
+	text-align:center;
+	font-size:50px;
+}
+.id>p{
+	font-size:100px;
+}
+
+.english{
+	margin-top:100px;
+	text-align:center;
+	font-size:90px;
+	color:black;
+}
+.english>p{
+	background-color:deepskyblue;
+	 border-radius: 30px 30px 30px 30px;
+	display: inline-block;
+	font-size:150px;
+	color:white;
+}
+

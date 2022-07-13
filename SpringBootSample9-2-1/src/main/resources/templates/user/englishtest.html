@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+
+<head>
+<title>ユーザー一覧</title>
+
+<!-- 個別CSS読込 -->
+
+<link rel="stylesheet" th:href="@{/css/user/englishtest.css}">
+
+</head>
+
+<body>
+
+
+ <div class="id">
+ <h1>単語テスト</h1>
+  <p>残り<span id="timer"></span>秒</p>
+ </div>
+ 
+ <div class="english">
+ <p th:text="${word.english}"><p>
+ </div>
+
+  
+
+
+ <script>
+        window.onload=function(){
+        	setTimeout("five()",0);
+        	setTimeout("four()",1000);
+        	setTimeout("three()",2000);
+        	setTimeout("two()",3000);
+        	setTimeout("one()",4000);
+        	setTimeout("zero()",5000);
+        }
+        function five(){
+        	var timer=document.getElementById("timer");
+            timer.innerHTML=5;
+        }
+        function four(){
+        	var timer=document.getElementById("timer");
+            timer.innerHTML=4;
+        }
+        function three(){
+        	var timer=document.getElementById("timer");
+            timer.innerHTML=3;
+        }
+        function two(){
+        	var timer=document.getElementById("timer");
+            timer.innerHTML=2;
+        }
+        function one(){
+        	var timer=document.getElementById("timer");
+            timer.innerHTML=1;
+        }
+        function zero(){
+        	var timer=document.getElementById("timer");
+            timer.innerHTML=0;
+        }
+
+       
+    </script>
+
+<script>
+
+function loc() {
+
+window.location = "../user/english/answer";
+
+}
+
+setTimeout("loc()",5000);
+
+</script>
+
+
+</body>
+
+</html>

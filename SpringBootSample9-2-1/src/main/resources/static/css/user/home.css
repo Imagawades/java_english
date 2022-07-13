@@ -1,0 +1,25 @@
+.header {
+  padding-top: 1rem!important;
+  padding-bottom: .5rem!important;
+  margin-bottom: 1rem!important;
+}
+
+.th-width {
+  width: 200px;
+}
+
+.col-sm-10 {
+	
+	padding-right:0px;
+	margin:0px;
+	
+	
+}
+html{
+	
+	opacity:1;
+}
+
+html>h2{
+	padding-top: 1rem!important;
+}

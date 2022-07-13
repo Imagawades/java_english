@@ -7,3 +7,19 @@
 .th-width {
   width: 200px;
 }
+
+.col-sm-10 {
+	
+	padding-right:0px;
+	margin:0px;
+	
+	
+}
+html{
+	background-image:url("../../images/kaigai.jpg");
+	opacity:1;
+}
+
+html>h2{
+	padding-top: 1rem!important;
+}

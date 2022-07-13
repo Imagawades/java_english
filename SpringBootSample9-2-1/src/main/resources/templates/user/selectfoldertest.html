@@ -19,17 +19,17 @@
         <thead class="thead-light">
           <tr>
             <th class="th-width">フォルダ名</th>
-            <th class="th-width">完了率(%)</th>
+          
          
           </tr>
         </thead>
         <tbody>
           <tr th:each="item: ${folderList}">
          <td>
-              <a  th:text="${item.folderName}" class="folder" th:href="@{'/user/folder/wordregistar/' + ${item.folderId}}">  
+              <a  th:text="${item.folderName}" class="folder" th:href="@{'/user/test/selectlanguage/' + ${item.folderId}}">  
               </a>
             </td>
-            <td th:text="${item.completeRate}"></td>
+         
             
           </tr>
         </tbody>
