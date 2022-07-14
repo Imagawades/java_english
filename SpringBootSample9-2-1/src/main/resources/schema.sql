@@ -28,5 +28,16 @@ CREATE TABLE IF NOT EXISTS questions (
   questionId INT AUTO_INCREMENT PRIMARY KEY,
   wordId INT,
   userId INT,
+  folderId INT,
   flag INT
 );
+
+CREATE TABLE IF NOT EXISTS answer (
+  answerId INT AUTO_INCREMENT PRIMARY KEY,
+  wordId INT,
+  answerSituationId INT,
+  date DATE
+);
+
+
+

@@ -7,5 +7,6 @@ public class Question{
 	private Integer questionId;
 	private Integer wordId;
 	private Integer userId;
+	private Integer folderId;
 	private Integer flag;
 }

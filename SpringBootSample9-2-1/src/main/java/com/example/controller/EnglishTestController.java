@@ -27,12 +27,13 @@ public class EnglishTestController{
 	public String getEnglishTest(Model model,Word word) {
 		//出題問題取得
 		String email=session.getEmail();
+		Integer folderId=session.getFolderId();
 		//ログインユーザーのユーザーId取得
 		User user=userService.getUser(email);
 		Integer userId=user.getUserId();
 		
 		//出題予定の問題を取得
-		List<Question> questions=userService.getAllQuestions(userId);
+		List<Question> questions=userService.getAllQuestions(userId,folderId);
 		
 		for(int i=0;i<questions.size();i++) {
 			
@@ -44,15 +45,14 @@ public class EnglishTestController{
 				question.setQuestionId(questions.get(i).getQuestionId());
 				question.setWordId(questions.get(i).getWordId());
 				question.setUserId(questions.get(i).getUserId());
+				question.setFolderId(questions.get(i).getFolderId());
 				question.setFlag(1);
-				System.out.println("question");
-				System.out.println(question);
-				
 				
 				//出題した問題のflag更新
 				userService.updateFlag(question);
 				
 				Integer wordId=questions.get(i).getWordId();
+				
 				//出題する単語
 				Word oneWord=userService.getWord(wordId);
 				session.setWordId(question.getWordId());

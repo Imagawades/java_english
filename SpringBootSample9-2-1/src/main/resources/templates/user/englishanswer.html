@@ -5,25 +5,34 @@
 <head>
   <title>ユーザー一覧</title>
   <!-- 個別CSS読込 -->
-   <link rel="stylesheet" th:href="@{/css/user/englishtest.css}">
+   <link rel="stylesheet" th:href="@{/css/user/englishanswer.css}">
 </head>
 <body>
   <div layout:fragment="content">
-  
+  <div th:object="${word}">
+  <p class="A" th:text="${word.english}" >
+</p> 
+<p class="B" th:text="${word.japanese}">
+</p> 
+</div>
   　
- <form id="user-search-form" method="get" th:action="@{/user/englishtest}"  th:object="${word}">
-
-<tr th:each="item:${word}">
-<td class="A" th:text="${item.english}">
-</td> 
-<td th:text="${item.japanese}">
-</td> 
-</tr>
+ <form id="user-search-form" method="post" th:action="@{/user/english/answer}"  th:object="${answer}">
 
 
 
-
+<div class="radio">
+<label>
+  <input type="radio" name="level" th:value="*{answerSituationId}">
+  　完璧！
+</label>
+<label>
+  <input type="radio" name="level" th:value="*{answerSituationId}">
+  まだまだ
+</label>
+</div>
+<input type="submit" value="ログイン" class="btn btn-primary" />
 </form>
+
    
     
    

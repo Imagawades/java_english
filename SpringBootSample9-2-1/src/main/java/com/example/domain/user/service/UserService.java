@@ -2,6 +2,7 @@ package com.example.domain.user.service;
 
 import java.util.List;
 
+import com.example.domain.user.model.Answer;
 import com.example.domain.user.model.Folder;
 import com.example.domain.user.model.Part_of_speech;
 import com.example.domain.user.model.Question;
@@ -27,18 +28,21 @@ public interface UserService {
 	public User getUser(String email);
 	
 	//フォルダごとの単語全件取得
-	public List<Word>getAllWords(Integer folderId);
+	public List<Word>getAllWords(Integer userId,Integer folderId);
 	
 	//出題テーブルの作成
 	public void createQuestionTable(Question question);
 	
 	//出題問題の取得
-	public List<Question> getAllQuestions(Integer userId);
+	public List<Question> getAllQuestions(Integer userId,Integer folderId);
 	
 	//出題問題のフラグ更新
 	public void updateFlag(Question question);
 	
 	//出題単語取得
 	public Word getWord(Integer wordId);
+	
+	//回答状況の登録
+	public void registarAnswer(Answer answer);
 
 }

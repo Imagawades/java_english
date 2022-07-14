@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.user.model.Question;
 import com.example.domain.user.model.Session;
+import com.example.domain.user.model.User;
 import com.example.domain.user.model.Word;
 import com.example.domain.user.service.UserService;
 
@@ -25,13 +26,18 @@ public class EnglishTestStartController{
 	@GetMapping("/englishteststart")
 	public String getEnglishTest() {
 		Integer folderId=session.getFolderId();
-		//フォルダ内の全単語取得
-		List<Word> words=userService.getAllWords(folderId);
+		String email=session.getEmail();
+		User user=userService.getUser(email);
+		Integer userId=user.getUserId();
+		
+		//ログインユーザーの選択されたフォルダ内の全単語取得
+		List<Word> words=userService.getAllWords(userId,folderId);
 		Collections.shuffle(words);
 		for(int i=0;i<words.size();i++) {
 			Question question=new Question();
 			question.setWordId(words.get(i).getWordId());
 			question.setUserId(words.get(i).getUserId());
+			question.setFolderId(words.get(i).getFolderId());
 			question.setFlag(0);
 			System.out.println(question);
 			//出題問題をテーブルに登録

@@ -34,8 +34,16 @@
     <id column="questionId" property="questionId" />
     <result column="wordId" property="wordId" />
     <result column="userId" property="userId" />
+    <result column="folderId" property="folderId" />
     <result column="flag" property="flag" />
   </resultMap>
+  <resultMap type="com.example.domain.user.model.Answer" id="answer">
+    <id column="answerId" property="answerId" />
+    <result column="wordId" property="wordId" />
+    <result column="answerSituationId" property="answerSituationId" />
+    <result column="date" property="date" />
+  </resultMap>
+  
   
   
 <select id="getLoginUser" resultType="User">
@@ -109,6 +117,7 @@ select
 from
 word
 where
+userId=#{userId} AND
 folderId=#{folderId}
 </select>
 
@@ -116,11 +125,13 @@ folderId=#{folderId}
 insert into questions(
 wordId,
 userId,
+folderId,
 flag
 )
 values(
 #{wordId},
 #{userId},
+#{folderId},
 #{flag}
 )
 
@@ -132,7 +143,8 @@ select
 from
 questions
 where
-userId=#{userId}
+userId=#{userId} AND
+folderId=#{folderId}
 </select>
 
 <update id="updateFlag">
@@ -142,6 +154,7 @@ set
 
 wordId=#{wordId},
 userId=#{userId},
+
 flag=#{flag} 
 where
 wordId=#{wordId}
@@ -158,5 +171,19 @@ word
 where
 wordId=#{wordId}
 </select> 
+<insert id="registarAnswer">
+insert into answer(
+wordId,
+answerSituationId,
+date
+)
+values(
+#{wordId},
+#{answerSituationId},
+#{date}
+)
+
+
+</insert>
  
 </mapper>
