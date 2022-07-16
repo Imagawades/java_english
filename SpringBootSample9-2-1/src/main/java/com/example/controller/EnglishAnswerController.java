@@ -1,6 +1,9 @@
 package com.example.controller;
 
 import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,6 +32,10 @@ public class EnglishAnswerController{
 		Word wordAnswer=userService.getWord(wordId);
 		word.setEnglish(wordAnswer.getEnglish());
 		word.setJapanese(wordAnswer.getJapanese());
+		Map<Integer, String> radio=new LinkedHashMap<>();
+		radio.put(0,"完璧");
+		radio.put(1,"まだまだ");
+		model.addAttribute("radio",radio);
 		answer.setWordId(wordId);
 		model.addAttribute("word",word);
 		model.addAttribute("answer",answer);
@@ -36,16 +43,23 @@ public class EnglishAnswerController{
 	}
 	@PostMapping("/english/answer")
 	public String postEnglish(Model model,Answer answer) {
+		
 		//現在時刻をセット
 		Date now=new Date();
 		answer.setDate(now);
-		System.out.println("answer");
-		
-		System.out.println(answer);
+		Integer wordId =session .getWordId();
+		answer.setWordId(wordId);
 		//answerテーブルに回答状況を登録
 		userService.registarAnswer(answer);
+		//answerテーブルの情報取得
+		List<Answer> answerList=userService.getAnswer(wordId);
+		//questionテーブルにansweIdとanswerSituationIdをセット
+		Integer answerSize=answerList.size();
+		Integer answerId=answerList.get(answerSize-1).getAnswerId();
+		Integer answerSituationId=answerList.get(answerSize-1).getAnswerSituationId();
+		userService.updateAnswertoQuestion(wordId,answerId,answerSituationId);
 		
-		return "/user/englishtest";
+		return "redirect:/user/englishtest";
 	}
 	
 }

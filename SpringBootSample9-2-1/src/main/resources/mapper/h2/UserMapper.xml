@@ -32,9 +32,11 @@
   </resultMap>
    <resultMap type="com.example.domain.user.model.Question" id="question">
     <id column="questionId" property="questionId" />
+    <result column="answerId" property="answerId" />
     <result column="wordId" property="wordId" />
     <result column="userId" property="userId" />
     <result column="folderId" property="folderId" />
+      <result column="answerSituationId" property="answerSituationId" />
     <result column="flag" property="flag" />
   </resultMap>
   <resultMap type="com.example.domain.user.model.Answer" id="answer">
@@ -42,6 +44,14 @@
     <result column="wordId" property="wordId" />
     <result column="answerSituationId" property="answerSituationId" />
     <result column="date" property="date" />
+  </resultMap>
+  <resultMap type="com.example.domain.user.model.AnswerList" id="answerlist">
+    <id column="questionId" property="questionId" />
+    <result column="wordId" property="wordId" />
+     <result column="english" property="english" /> 
+     <result column="japanese" property="japanese" />
+    <result column="answerSituationId" property="answerSituationId" />
+   
   </resultMap>
   
   
@@ -182,8 +192,54 @@ values(
 #{answerSituationId},
 #{date}
 )
-
-
 </insert>
+
+<select id="getAnswer" resultType="Answer">
+select
+*
+from
+answer
+where
+wordId=#{wordId}
+
+</select>
+
+<update id="updateAnswertoQuestion">
+update 
+questions
+set
+answerId=#{answerId},
+answerSituationId=#{answerSituationId}
+where
+wordId=#{wordId}
+</update>
+
+<select id="getAnswerList" resultType="AnswerList">
+select
+questionId,
+answerId,
+word.wordId,
+english,
+japanese,
+answerSituationId
+from
+word
+inner join
+questions
+on
+word.wordId=questions.wordId
+where
+word.userId=#{userId} AND
+word.folderId=#{folderId}
+</select>
+
+<delete id="deleteAnswer">
+delete
+*
+from
+questions
+where
+userId=#{userId}
+</delete>
  
 </mapper>

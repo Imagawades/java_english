@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.domain.user.model.Answer;
+import com.example.domain.user.model.AnswerList;
 import com.example.domain.user.model.Folder;
 import com.example.domain.user.model.Part_of_speech;
 import com.example.domain.user.model.Question;
@@ -54,5 +55,17 @@ public class UserServiceImpl implements UserService {
 	}
 	public void registarAnswer(Answer answer) {
 		mapper.registarAnswer(answer);
+	}
+	public List<Answer> getAnswer(Integer wordId){
+		return mapper.getAnswer(wordId);
+	}
+	public void updateAnswertoQuestion(Integer wordId,Integer answerId,Integer answerSituationId) {
+		mapper.updateAnswertoQuestion(wordId,answerId,answerSituationId);
+	}
+	public List<AnswerList> getAnswerList(Integer wordId,Integer userId,Integer folderId){
+		return mapper.getAnswerList(wordId,userId,folderId);
+	}
+	public void deleteAnswer(Integer userId,Integer folderId) {
+		 mapper.deleteAnswer(userId,folderId);
 	}
 }

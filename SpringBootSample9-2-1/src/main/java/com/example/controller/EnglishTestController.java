@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.domain.user.model.AnswerList;
 import com.example.domain.user.model.Question;
 import com.example.domain.user.model.Session;
 import com.example.domain.user.model.User;
@@ -24,7 +25,7 @@ public class EnglishTestController{
 	Session session;
 	
 	@GetMapping("/englishtest")
-	public String getEnglishTest(Model model,Word word) {
+	public String getEnglishTest(Model model,Word word,AnswerList answerList) {
 		//出題問題取得
 		String email=session.getEmail();
 		Integer folderId=session.getFolderId();
@@ -36,6 +37,12 @@ public class EnglishTestController{
 		List<Question> questions=userService.getAllQuestions(userId,folderId);
 		
 		for(int i=0;i<questions.size();i++) {
+			//全ての問題が出題完了した時
+			if(questions.get(questions.size()-1).getFlag()==1) {
+				//全ての問題を出題した場合
+				
+				return "redirect:/user/englishresult";
+			}
 			
 			if(questions.get(i).getFlag()==0) {
 				System.out.println(i);
@@ -59,6 +66,8 @@ public class EnglishTestController{
 				model.addAttribute("word",oneWord);
 				break;
 			}
+			
+			
 			
 			
 		}

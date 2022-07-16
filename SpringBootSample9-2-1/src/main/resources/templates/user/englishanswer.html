@@ -20,17 +20,9 @@
 
 
 
-<div class="radio">
-<label>
-  <input type="radio" name="level" th:value="*{answerSituationId}">
-  　完璧！
-</label>
-<label>
-  <input type="radio" name="level" th:value="*{answerSituationId}">
-  まだまだ
-</label>
-</div>
-<input type="submit" value="ログイン" class="btn btn-primary" />
+<div class="radio" th:each="item : ${radio}">
+<input type="radio" th:value="${item.key}" th:text="${item.value}" th:field="*{answerSituationId}"></div>
+<input type="submit" value="次の問題へ" class="btn btn-primary" />
 </form>
 
    

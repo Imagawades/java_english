@@ -3,6 +3,7 @@ package com.example.domain.user.service;
 import java.util.List;
 
 import com.example.domain.user.model.Answer;
+import com.example.domain.user.model.AnswerList;
 import com.example.domain.user.model.Folder;
 import com.example.domain.user.model.Part_of_speech;
 import com.example.domain.user.model.Question;
@@ -44,5 +45,17 @@ public interface UserService {
 	
 	//回答状況の登録
 	public void registarAnswer(Answer answer);
+	
+	//回答状況の取得
+	public List<Answer> getAnswer(Integer wordId);
+	
+	//Questionテーブルへ回答状況を反映
+	public void updateAnswertoQuestion(Integer wordId,Integer answerId,Integer answerSituationId); 
+	
+	//回答状況の取得
+	public List<AnswerList> getAnswerList(Integer wordId,Integer userId,Integer folderId);
+	
+	//questionテーブルの該当データを削除
+	public void deleteAnswer(Integer userId,Integer folderId);
 
 }

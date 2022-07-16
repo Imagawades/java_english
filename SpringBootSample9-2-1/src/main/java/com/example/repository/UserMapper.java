@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.example.domain.user.model.Answer;
+import com.example.domain.user.model.AnswerList;
 import com.example.domain.user.model.Folder;
 import com.example.domain.user.model.Part_of_speech;
 import com.example.domain.user.model.Question;
@@ -38,5 +39,12 @@ public interface UserMapper {
 	public Word getWord(Integer wordId);
 	
 	public void registarAnswer(Answer answer);
-
+	
+	public List<Answer> getAnswer(Integer wordId);
+	
+	public void updateAnswertoQuestion(Integer wordId,Integer answerId,Integer answerSituationId); 
+	
+	public List<AnswerList> getAnswerList(Integer wordId,Integer userId,Integer folderId);
+	
+	public void deleteAnswer(Integer userId,Integer folderId);
 }

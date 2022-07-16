@@ -26,9 +26,11 @@ CREATE TABLE IF NOT EXISTS part_of_speech (
 
 CREATE TABLE IF NOT EXISTS questions (
   questionId INT AUTO_INCREMENT PRIMARY KEY,
+  answerId INT,
   wordId INT,
   userId INT,
   folderId INT,
+  answerSituationId INT,
   flag INT
 );
 
