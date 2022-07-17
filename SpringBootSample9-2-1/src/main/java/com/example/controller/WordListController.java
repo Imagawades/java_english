@@ -54,6 +54,7 @@ public class WordListController{
 			System.out.println(3);
 			wordLists.setJapanese(answers.get(i).getJapanese());
 			System.out.println(4);
+			
 			System.out.println("answersize");
 			System.out.println(answers.size());
 			wordLists.setDate1(answers.get(answers.size()-1).getDate());
