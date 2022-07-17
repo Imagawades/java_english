@@ -12,6 +12,7 @@ import com.example.domain.user.model.Part_of_speech;
 import com.example.domain.user.model.Question;
 import com.example.domain.user.model.User;
 import com.example.domain.user.model.Word;
+import com.example.domain.user.model.WordAnswerList;
 import com.example.domain.user.service.UserService;
 import com.example.repository.UserMapper;
 
@@ -67,5 +68,8 @@ public class UserServiceImpl implements UserService {
 	}
 	public void deleteAnswer(Integer userId,Integer folderId) {
 		 mapper.deleteAnswer(userId,folderId);
+	}
+	public List<WordAnswerList> getAnswerOneWord(Integer wordId){
+		return mapper.getAnswerOneWord(wordId);
 	}
 }

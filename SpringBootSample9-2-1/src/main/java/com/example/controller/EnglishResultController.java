@@ -68,7 +68,7 @@ public class EnglishResultController{
 		model.addAttribute("answerresult",answerresult);
 		
 		//questionテーブルから該当する回答を削除
-		//userService.deleteAnswer(userId,folderId);
+		userService.deleteAnswer(userId,folderId);
 		
 		return "user/englishresult";
 		

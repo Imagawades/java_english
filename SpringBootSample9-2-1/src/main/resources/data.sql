@@ -2,13 +2,13 @@ INSERT INTO user (userId,userName,email,password)
 VALUES(1,'1', 'iy0827@icloud.com', 'acvGqF5c');
 
 INSERT INTO folder (folderId,folderName,userId,completeRate)
-VALUES(1,'A',1,40),(2,'B',1,50),(3,'CCCC',1,50)
+VALUES(1,'1章',1,40),(2,'2章',1,50),(3,'3章',1,50)
 ;
 
 INSERT INTO word(wordId,english,japanese,part_of_speechName,folderId,userId)
 VALUES(1,'apple','りんご','名詞',1,1),
 (2,'banana','バナナ','名詞',1,1),
-(3,'malon','メロン','名詞',1,1),
+(3,'melon','メロン','名詞',1,1),
 (4,'orange','みかん','名詞',1,1),
 (5,'grape','ぶどう','名詞',1,1)
 ;

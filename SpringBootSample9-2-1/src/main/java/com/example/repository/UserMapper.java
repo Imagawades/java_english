@@ -13,6 +13,7 @@ import com.example.domain.user.model.Part_of_speech;
 import com.example.domain.user.model.Question;
 import com.example.domain.user.model.User;
 import com.example.domain.user.model.Word;
+import com.example.domain.user.model.WordAnswerList;
 
 @Mapper
 public interface UserMapper {
@@ -47,4 +48,6 @@ public interface UserMapper {
 	public List<AnswerList> getAnswerList(Integer wordId,Integer userId,Integer folderId);
 	
 	public void deleteAnswer(Integer userId,Integer folderId);
+	
+	public List<WordAnswerList> getAnswerOneWord(Integer wordId);
 }

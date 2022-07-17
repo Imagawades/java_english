@@ -9,6 +9,7 @@ import com.example.domain.user.model.Part_of_speech;
 import com.example.domain.user.model.Question;
 import com.example.domain.user.model.User;
 import com.example.domain.user.model.Word;
+import com.example.domain.user.model.WordAnswerList;
 
 public interface UserService {
 	//ログインユーザーの取得
@@ -57,5 +58,8 @@ public interface UserService {
 	
 	//questionテーブルの該当データを削除
 	public void deleteAnswer(Integer userId,Integer folderId);
+	
+	//指定されたwordIdのみ回答状況を取得
+	public List<WordAnswerList> getAnswerOneWord(Integer wordId);
 
 }

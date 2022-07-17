@@ -235,11 +235,29 @@ word.folderId=#{folderId}
 
 <delete id="deleteAnswer">
 delete
-*
 from
 questions
 where
 userId=#{userId}
 </delete>
+
+<select id="getAnswerOneWord" resultType="WordAnswerList">
+select
+answerId,
+answer.wordId,
+english,
+japanese,
+answerSituationId,
+date
+from
+answer
+inner join
+word
+on
+word.wordId=answer.wordId
+where
+word.wordId=#{wordId}
+</select>
+
  
 </mapper>
