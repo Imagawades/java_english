@@ -51,8 +51,18 @@
      <result column="english" property="english" /> 
      <result column="japanese" property="japanese" />
     <result column="answerSituationId" property="answerSituationId" />
-   
   </resultMap>
+  <resultMap type="com.example.domain.user.model.WordList" id="wordlist">
+    <id column="wordId" property="wordId" />
+    <result column="english" property="english" />
+     <result column="japanese" property="japanese" />
+      <result column="date1" property=" date1" />
+      <result column="answerSituationId1" property="answerSituationId1" />
+    <result column="date2" property=" date2" />
+      <result column="answerSituationId2" property="answerSituationId2" />
+      <result column="date3" property="date3" />
+      <result column="answerSituationId3" property="answerSituationId3" />
+      </resultMap>
   
   
   
@@ -258,6 +268,31 @@ word.wordId=answer.wordId
 where
 word.wordId=#{wordId}
 </select>
+
+<insert id="registarWordAnswer">
+insert into wordList(
+wordId,
+english,
+japanese,
+answerSituationId1,
+date1,
+answerSituationId2,
+date2,
+answerSituationId3,
+date3
+)
+values(
+#{wordId},
+#{english},
+#{japanese},
+#{answerSituationId1},
+#{date1},
+#{answerSituationId2},
+#{date2},
+#{answerSituationId3},
+#{date3}
+)
+</insert>
 
  
 </mapper>

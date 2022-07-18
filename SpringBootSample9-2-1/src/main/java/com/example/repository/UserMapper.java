@@ -14,6 +14,7 @@ import com.example.domain.user.model.Question;
 import com.example.domain.user.model.User;
 import com.example.domain.user.model.Word;
 import com.example.domain.user.model.WordAnswerList;
+import com.example.domain.user.model.WordList;
 
 @Mapper
 public interface UserMapper {
@@ -50,4 +51,12 @@ public interface UserMapper {
 	public void deleteAnswer(Integer userId,Integer folderId);
 	
 	public List<WordAnswerList> getAnswerOneWord(Integer wordId);
+	
+	public void registarWordAnswer(WordList wordLists);
+
+	
+	
+	
+	
+	
 }

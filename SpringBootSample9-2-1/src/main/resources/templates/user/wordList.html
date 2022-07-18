@@ -20,9 +20,9 @@
         <tr>
           <th class="th-width">英語</th>
             <th class="th-width">日本語</th>
-            <th class="th-width">1</th>
-             <th class="th-width">2</th>
-              <th class="th-width">3</th>
+            <th class="th-width">前回</th>
+             <th class="th-width">前々回</th>
+              <th class="th-width">前前々回</th>
             
           </tr>
         </thead>
@@ -30,9 +30,9 @@
           <tr th:each="item: ${wordAnswerLists}">
             <td th:text="${item.english}"></td>
             <td th:text="${item.japanese}"></td>
-            <td th:text="${item.date1}"></td>
-            <td th:text="${item.date2}"></td>
-            <td th:text="${item.date3}"></td>
+            <td th:text="${item.answer1}"></td>
+            <td th:text="${item.answer2}"></td>
+            <td th:text="${item.answer3}"></td>
         </tbody>
       </table>
      

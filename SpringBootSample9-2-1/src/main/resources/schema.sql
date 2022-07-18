@@ -40,6 +40,17 @@ CREATE TABLE IF NOT EXISTS answer (
   answerSituationId INT,
   date DATE
 );
+CREATE TABLE IF NOT EXISTS WordList(
+	wordId INT,
+	english VARCHAR(50),
+	japanese VARCHAR(50),
+	date1 DATE,
+	answerSituationId1 INT,
+	date2 DATE,
+	answerSituationId2 INT,
+	date3 DATE,
+	answerSituationId3 INT
+);
 
 
 

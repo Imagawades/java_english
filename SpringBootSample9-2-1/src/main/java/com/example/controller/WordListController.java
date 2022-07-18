@@ -14,6 +14,7 @@ import com.example.domain.user.model.User;
 import com.example.domain.user.model.Word;
 import com.example.domain.user.model.WordAnswerList;
 import com.example.domain.user.model.WordList;
+import com.example.domain.user.model.Wordplusflag;
 import com.example.domain.user.service.UserService;
 
 @Controller
@@ -33,35 +34,78 @@ public class WordListController{
 		Integer folderId=session.getFolderId();
 		//全件単語情報取得
 		List<Word> wordList=userService.getAllWords(userId,folderId);
-		List<WordList> wordAnswerLists=new ArrayList<>();
-		//単語の直近3件分の正誤データを取得
+		//フラグ情報付きのモデルに移し替え
+		List<Wordplusflag> words=new ArrayList<>();
 		for(int i=0;i<wordList.size();i++) {
-			Integer wordId=wordList.get(i).getWordId();
+			Wordplusflag word=new Wordplusflag();
+			
+			word.setWordId(wordList.get(i).getWordId());
+			word.setEnglish(wordList.get(i).getEnglish());
+			word.setJapanese(wordList.get(i).getJapanese());
+			word.setPart_of_speechName(wordList.get(i).getPart_of_speechName());
+			word.setUserId(wordList.get(i).getUserId());
+			word.setFolderId(wordList.get(i).getFolderId());
+			word.setFlag(0);
+			words.add(word);
+		}
+		List<WordList> wordAnswerLists=new ArrayList<>();
+		
+		for(int l=0;l<wordList.size();l++) {
+			Integer wordId=wordList.get(l).getWordId();
 			//指定されたwordIdの単語のみの回答状況を取得
 			List<WordAnswerList> answers=userService.getAnswerOneWord(wordId);
-			System.out.println("answers");
-			System.out.println(answers);
-			WordList wordLists=new WordList();
-			System.out.println(1);
-			wordLists.setWordId(wordId);
-			System.out.println(2);
-			System.out.println(answers);
-			System.out.println(answers.get(0));
-			System.out.println(i);
-			System.out.println(answers.get(i).getEnglish());
-			System.out.println(wordLists.getEnglish());
-			wordLists.setEnglish(answers.get(i).getEnglish());
-			System.out.println(3);
-			wordLists.setJapanese(answers.get(i).getJapanese());
-			System.out.println(4);
+			if(words.get(l).getFlag()==0) {
+				System.out.println("l");
+				System.out.println(l);
+				System.out.println(words.get(l).getFlag());
+				words.get(l).setFlag(1);		
+				System.out.println(words.get(l).getFlag());
+				//単語の直近3件分の正誤データを取得
+				
+					WordList wordLists=new WordList();
+					wordLists.setWordId(wordId);
+					wordLists.setEnglish(answers.get(0).getEnglish());
+					wordLists.setJapanese(answers.get(0).getJapanese());
+					if(answers.size()-1>-1) {
+						wordLists.setDate1(answers.get(answers.size()-1).getDate());
+						if(answers.get(answers.size()-1).getAnswerSituationId()==0) {
+							wordLists.setAnswerSituationId1(0);
+							wordLists.setAnswer1("正解");
+						}
+						else{
+							wordLists.setAnswerSituationId1(1);
+							wordLists.setAnswer1("不正解");
+						}
+						if(answers.size()-2>-1) {
+							wordLists.setDate2(answers.get(answers.size()-2).getDate());
+							if(answers.get(answers.size()-2).getAnswerSituationId()==0) {
+								wordLists.setAnswerSituationId2(0);
+								wordLists.setAnswer2("正解");
+							}
+							else{
+								wordLists.setAnswerSituationId2(1);
+								wordLists.setAnswer2("不正解");
+							}
+							if(answers.size()-3>-1) {
+								wordLists.setDate3(answers.get(answers.size()-3).getDate());
+								if(answers.get(answers.size()-3).getAnswerSituationId()==0) {
+									wordLists.setAnswerSituationId3(0);
+									wordLists.setAnswer3("正解");
+								}
+								else{
+									wordLists.setAnswerSituationId3(1);
+									wordLists.setAnswer3("不正解");
+								}
+							}
+						}
+					userService.registarWordAnswer(wordLists);	
+					wordAnswerLists.add(wordLists);
+				}
+			}
 			
-			System.out.println("answersize");
-			System.out.println(answers.size());
-			wordLists.setDate1(answers.get(answers.size()-1).getDate());
-			System.out.println(5);
-			wordLists.setAnswerSituationId1(answers.get(answers.size()-1).getAnswerSituationId());
-			wordAnswerLists.add(wordLists);
 		}
+		
+		
 		System.out.println("wordAnswerLists");
 		System.out.println(wordAnswerLists);
 		model.addAttribute("wordAnswerLists",wordAnswerLists);

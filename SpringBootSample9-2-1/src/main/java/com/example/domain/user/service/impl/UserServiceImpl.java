@@ -13,6 +13,7 @@ import com.example.domain.user.model.Question;
 import com.example.domain.user.model.User;
 import com.example.domain.user.model.Word;
 import com.example.domain.user.model.WordAnswerList;
+import com.example.domain.user.model.WordList;
 import com.example.domain.user.service.UserService;
 import com.example.repository.UserMapper;
 
@@ -72,4 +73,9 @@ public class UserServiceImpl implements UserService {
 	public List<WordAnswerList> getAnswerOneWord(Integer wordId){
 		return mapper.getAnswerOneWord(wordId);
 	}
+	public void registarWordAnswer(WordList wordLists) {
+		mapper.registarWordAnswer(wordLists);
+
+	}
+
 }
