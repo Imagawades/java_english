@@ -23,3 +23,7 @@ html{
 html>h2{
 	padding-top: 1rem!important;
 }
+.form-login{
+	text-align:center;
+	margin-top:100px;
+}

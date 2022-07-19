@@ -2,6 +2,7 @@ package com.example.repository;
 
 
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -53,6 +54,10 @@ public interface UserMapper {
 	public List<WordAnswerList> getAnswerOneWord(Integer wordId);
 	
 	public void registarWordAnswer(WordList wordLists);
+	
+	public void insertNowDate(Date date);
+	
+	public List<WordAnswerList> getTodayWord(Date date);
 
 	
 	

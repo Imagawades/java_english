@@ -1,5 +1,6 @@
 package com.example.domain.user.service;
 
+import java.util.Date;
 import java.util.List;
 
 import com.example.domain.user.model.Answer;
@@ -65,5 +66,10 @@ public interface UserService {
 	
 	//直近３回分の回答状況を登録
 	public void registarWordAnswer(WordList wwordLists);
+	
+	public void insertNowDate(Date date);
+	
+	//今日出すべき単語の取得
+	public List<WordAnswerList> getTodayWord(Date date);
 
 }

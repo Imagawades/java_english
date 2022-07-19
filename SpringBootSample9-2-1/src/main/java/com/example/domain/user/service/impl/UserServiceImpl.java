@@ -1,5 +1,6 @@
 package com.example.domain.user.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,6 +77,12 @@ public class UserServiceImpl implements UserService {
 	public void registarWordAnswer(WordList wordLists) {
 		mapper.registarWordAnswer(wordLists);
 
+	}
+	public void insertNowDate(Date date) {
+		mapper.insertNowDate(date);
+	}
+	public List<WordAnswerList> getTodayWord(Date date){
+		return mapper.getTodayWord(date);
 	}
 
 }

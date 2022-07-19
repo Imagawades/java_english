@@ -30,21 +30,12 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 
  <script>
         window.onload=function(){
-        	setTimeout("five()",0);
-        	setTimeout("four()",1000);
-        	setTimeout("three()",2000);
-        	setTimeout("two()",3000);
-        	setTimeout("one()",4000);
-        	setTimeout("zero()",5000);
+        	setTimeout("three()",0);
+        	setTimeout("two()",1000);
+        	setTimeout("one()",2000);
+        	setTimeout("zero()",3000);
         }
-        function five(){
-        	var timer=document.getElementById("timer");
-            timer.innerHTML=5;
-        }
-        function four(){
-        	var timer=document.getElementById("timer");
-            timer.innerHTML=4;
-        }
+        
         function three(){
         	var timer=document.getElementById("timer");
             timer.innerHTML=3;
@@ -73,7 +64,7 @@ window.location = "../user/english/answer";
 
 }
 
-setTimeout("loc()",5000);
+setTimeout("loc()",3000);
 
 </script>
 

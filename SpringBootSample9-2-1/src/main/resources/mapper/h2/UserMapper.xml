@@ -294,5 +294,42 @@ values(
 )
 </insert>
 
+<insert id="insertNowDate">
+insert into answer(
+answerId,
+wordId,
+answerSituationId,
+date
+)
+values(
+4,
+1,
+0,
+#{date}
+)
+</insert>
+
+
+<select id="getTodayWord" resultType="WordAnswerList">
+select
+answerId,
+answer.wordId,
+english,
+japanese,
+answerSituationId,
+date
+from
+answer
+inner join
+word
+on
+word.wordId=answer.wordId
+where
+answer.date=#{date}
+
+
+
+</select>
+
  
 </mapper>

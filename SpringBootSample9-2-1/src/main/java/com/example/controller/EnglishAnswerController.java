@@ -46,6 +46,7 @@ public class EnglishAnswerController{
 		
 		//現在時刻をセット
 		Date now=new Date();
+	
 		answer.setDate(now);
 		Integer wordId =session .getWordId();
 		answer.setWordId(wordId);
